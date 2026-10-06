@@ -1,7 +1,9 @@
 """Local singing jobs. Engines run in isolated, cancellable processes."""
 from __future__ import annotations
 
+import hashlib
 import json
+import math
 import os
 import shutil
 import subprocess
@@ -15,11 +17,12 @@ import soundfile as sf
 
 from core.config import DATA_DIR, VOICES_DIR
 from core.db import db_conn
-from core.path_security import resolve_within
+from core.path_security import resolve_within, safe_filename
 from services.ffmpeg_utils import find_ffmpeg
 
 ROOT = Path(DATA_DIR) / "singing"
 PROJECT = Path(__file__).resolve().parents[2]
+MODELS_ROOT = Path(DATA_DIR) / "singing-models"
 _events: dict[str, threading.Event] = {}
 _manifest_lock = threading.Lock()
 
@@ -148,6 +151,34 @@ def prepare_reference(job_id: str, profile_id: str | None, uploaded: Path | None
     return target
 
 
+def seed_profile_model(profile_id: str | None) -> dict:
+    """Opt-in local model manifest, tied to the exact saved voice recording."""
+    if not profile_id:
+        return {}
+    directory = resolve_within(MODELS_ROOT, safe_filename(profile_id))
+    manifest = resolve_within(directory, "model.json")
+    if not manifest.is_file():
+        return {}
+    data = json.loads(manifest.read_text(encoding="utf-8"))
+    with db_conn() as conn:
+        row = conn.execute("SELECT ref_audio_path, locked_audio_path FROM voice_profiles WHERE id=?", (profile_id,)).fetchone()
+    if not row or not (row["ref_audio_path"] or row["locked_audio_path"]):
+        raise ValueError("Không tìm thấy mẫu giọng của model hát riêng.")
+    reference = resolve_within(VOICES_DIR, row["ref_audio_path"] or row["locked_audio_path"])
+    with reference.open("rb") as stream:
+        fingerprint = hashlib.file_digest(stream, "sha256").hexdigest()
+    if data.get("reference_sha256") != fingerprint:
+        raise ValueError("Mẫu giọng đã thay đổi. Hãy hiệu chỉnh lại model hát riêng trước khi dùng.")
+    checkpoint = resolve_within(directory, "checkpoint.pth")
+    config = resolve_within(directory, "config.yml")
+    if not checkpoint.is_file() or not config.is_file():
+        raise ValueError("Model hát riêng thiếu checkpoint hoặc cấu hình.")
+    cfg = float(data.get("cfg", 0.7))
+    if not math.isfinite(cfg) or not 0 <= cfg <= 2:
+        raise ValueError("CFG của model hát riêng phải nằm trong khoảng 0 đến 2.")
+    return {"checkpoint": str(checkpoint), "config": str(config), "cfg": cfg}
+
+
 def fit_audio(job_id: str, source: Path, target: Path, duration: float, gain: float = 1.0) -> None:
     run_process(job_id, [find_ffmpeg(), "-y", "-i", str(source), "-af", f"volume={gain},apad,atrim=duration={duration}",
                          "-ar", "44100", "-c:a", "pcm_s24le", str(target)])
@@ -213,9 +244,17 @@ def execute(job_id: str, options: dict) -> dict:
         if not capabilities()["conversion"]:
             raise ValueError("Seed-VC chưa được cài. Hãy chạy trình cài engine hát.")
         converted = directory / "converted.wav"
-        run_process(job_id, [str(seed_python), str(PROJECT / "scripts/singing_engine.py"), "seed", "--root", str(seed_root),
+        model = seed_profile_model(options.get("profile_id"))
+        cfg = options.get("cfg")
+        if cfg is None:
+            cfg = model.get("cfg", 0.7)
+        command = [str(seed_python), str(PROJECT / "scripts/singing_engine.py"), "seed", "--root", str(seed_root),
                              "--source", str(vocal), "--target", str(reference), "--output", str(converted),
-                             "--steps", str(options["steps"]), "--pitch", str(options["pitch"])], cwd=seed_root)
+                             "--steps", str(options["steps"]), "--pitch", str(options["pitch"]), "--cfg", str(cfg)]
+        if model:
+            command += ["--checkpoint", model["checkpoint"], "--config", model["config"]]
+        update_job(job_id, conversion={"custom_model": bool(model), "cfg": cfg, "pitch": options["pitch"], "steps": options["steps"]})
+        run_process(job_id, command, cwd=seed_root)
         update_job(job_id, stage="mix", progress=88)
         final_vocal = directory / "vocal.wav"
         fit_audio(job_id, converted, final_vocal, duration, options["vocal_gain"])

@@ -4,7 +4,13 @@ Trong Công cụ, chọn Phòng thu giọng hát. Nạp bài đầy đủ hoặc
 
 Luồng đổi giọng: Demucs tách vocal và nhạc nền, Seed-VC SVC 44,1 kHz giữ cao độ nguồn rồi chuyển màu giọng, FFmpeg mix và xuất WAV 24 bit cùng MP3 320 kbps. Lỗi engine được báo rõ, không âm thầm trả vocal gốc. Audio tổng hợp đi qua `mark_synthetic` theo tùy chọn watermark của ứng dụng.
 
-Luồng tạo bài: lời và phong cách tiếng Việt đi qua ACE-Step 1.5 turbo, sau đó tách stem và đổi sang giọng tham chiếu bằng Seed-VC. Giọng tham chiếu không bảo đảm độ giống tuyệt đối, cần nghe thử trước khi dùng bản đầy đủ. Cấu hình mặc định giữ tông 0; không đổi tông vocal độc lập khi còn nhạc nền.
+Luồng tạo bài: lời và phong cách tiếng Việt đi qua ACE-Step 1.5 turbo, sau đó tách stem và đổi sang giọng tham chiếu bằng Seed-VC. Giọng tham chiếu không bảo đảm độ giống tuyệt đối, cần nghe thử trước khi dùng bản đầy đủ. Cấu hình mặc định giữ tông 0; đổi tông khác quãng tám cần beat cùng tông.
+
+Hiệu chỉnh giọng hát: worker nhận checkpoint và cấu hình Seed-VC đã tinh chỉnh riêng. Để bật cho một giọng, đặt `checkpoint.pth`, `config.yml` và `model.json` trong `<DATA_DIR>/singing-models/<profile_id>/`. Manifest gồm `reference_sha256` (SHA-256 của file tham chiếu đã lưu trong thư viện) và `cfg` (0-2, mặc định 0,7). Chỉ giọng có manifest mới dùng model riêng; giọng khác giữ model gốc. Nếu mẫu giọng đã thay, model thiếu file hoặc CFG không hợp lệ, công việc báo lỗi rõ. Không đưa checkpoint và audio cá nhân lên Git. Các model thử nghiệm chưa được bật mặc định trước khi nghe đối chiếu.
+
+API nhận thêm `cfg` tùy chọn, ưu tiên giá trị gửi lên rồi đến manifest rồi mặc định 0,7. Worker CLI nhận `--cfg`, `--checkpoint`, `--config`; checkpoint và config phải đi cùng nhau. `pitch=-12` hoặc `12` đổi quãng tám và giữ bộ nốt của nhạc nền, được phép mix với beat. Các mức đổi tông khác vẫn cần hai stem đã chuẩn bị cùng tông; không tự động ép cao độ hát về trung vị giọng nói. Giao diện hiện giữ tông 0.
+
+Mẫu nói 20-30 giây chỉ đủ thử zero-shot hoặc few-shot, chưa đủ bảo đảm nhận diện giọng khi hát. Tăng số bước, CFG hay rút ngắn mẫu không chắc cải thiện. Kiểm tra trên đoạn thực sự có vocal, so sánh bản cũ, model riêng và quãng hát phù hợp. Cosine của speaker embedding chỉ là tín hiệu phụ, có thiên lệch giữa nói và hát; quyết định độ giống cần nghe đối chiếu. Dữ liệu hát sạch của đúng giọng và nhiều quãng giúp tinh chỉnh đáng tin hơn.
 
 Engine chạy trong môi trường Python riêng. Thiết lập `OMNIVOICE_SEED_VC_DIR` và `OMNIVOICE_ACE_STEP_DIR` nếu engine nằm ngoài thư mục cạnh ứng dụng. Chạy `scripts/install-singing-engines.ps1` để cài trên Windows; installer chọn Torch CUDA 12.8 tương thích RTX 5070. Trên hệ khác tạo `.venv` của engine bằng runtime phù hợp và cấu hình hai đường dẫn. Worker tự nhận diện CUDA/CPU và Seed-VC tự nhận diện MPS.
 

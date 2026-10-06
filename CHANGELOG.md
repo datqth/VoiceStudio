@@ -19,6 +19,7 @@ metadata and the backend fallback mirror it.
 ### Changed
 
 - Bản local thêm phòng thu giọng hát bằng Seed-VC, Demucs và ACE-Step, có theo dõi công việc và xuất stem âm thanh.
+- Bản local hỗ trợ model hát riêng theo mẫu giọng, điều chỉnh CFG và thử quãng tám cùng nhạc nền.
 
 ## [0.5.7] — 2026-10-05
 

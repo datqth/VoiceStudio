@@ -48,6 +48,7 @@ async def create_job(
     source: UploadFile | None = File(None), reference: UploadFile | None = File(None),
     instrumental: UploadFile | None = File(None), source_is_vocal: bool = Form(False),
     steps: int = Form(30, ge=10, le=50), pitch: int = Form(0, ge=-12, le=12),
+    cfg: float | None = Form(None, ge=0.0, le=2.0),
     vocal_gain: float = Form(1.0, ge=0.1, le=2.0), instrumental_gain: float = Form(0.8, ge=0.0, le=2.0),
     caption: str = Form("", max_length=512), lyrics: str = Form("", max_length=4096),
     duration: int = Form(30, ge=10, le=180), bpm: int = Form(100, ge=30, le=300),
@@ -64,10 +65,10 @@ async def create_job(
         parsed = urlparse(youtube_url)
         if parsed.scheme != "https" or parsed.hostname not in {"youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be"} or parsed.username or parsed.password:
             raise HTTPException(400, "Chỉ nhận liên kết HTTPS của YouTube.")
-    if source_is_vocal and pitch != 0 and instrumental is not None:
+    if source_is_vocal and pitch not in {-12, 0, 12} and instrumental is not None:
         raise HTTPException(400, "Đổi tông vocal cần beat cùng tông. Hãy chuẩn bị hai stem cùng tông trước.")
-    if pitch != 0 and not source_is_vocal:
-        raise HTTPException(400, "Giữ tông 0 khi dùng bài đầy đủ để vocal khớp nhạc nền.")
+    if pitch not in {-12, 0, 12} and not source_is_vocal:
+        raise HTTPException(400, "Bài đầy đủ chỉ giữ tông 0 hoặc đổi một quãng tám để vocal khớp nhạc nền.")
     job_id, directory = singing.new_job()
     try:
         for upload, filename in ((source, "source-upload"), (reference, "reference-upload"), (instrumental, "instrumental-upload")):
@@ -79,7 +80,7 @@ async def create_job(
         singing.forget_job(job_id)
         raise
     options = dict(mode=mode, profile_id=profile_id, youtube_url=youtube_url, source_is_vocal=source_is_vocal,
-                   steps=steps, pitch=pitch, vocal_gain=vocal_gain, instrumental_gain=instrumental_gain,
+                   steps=steps, pitch=pitch, cfg=cfg, vocal_gain=vocal_gain, instrumental_gain=instrumental_gain,
                    caption=caption, lyrics=lyrics, duration=duration, bpm=bpm)
     task = asyncio.create_task(run_job(job_id, options))
     _tasks.add(task)
