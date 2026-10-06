@@ -3440,5 +3440,39 @@
     "error": "Não foi possível verificar os idiomas",
     "modelLanguages": "Idiomas deste modelo",
     "changeModel": "Alterar modelo"
+  },
+  "singing": {
+    "title": "Estúdio de canto",
+    "description": "Mantenha a melodia, altere a voz ou componha com letras vietnamitas.",
+    "notInstalled": "Seed-VC não instalado. Instale os motores de canto.",
+    "firstDownload": "O primeiro trabalho baixa os modelos. Consulte o registro do motor.",
+    "cover": "Converter canção",
+    "compose": "Compor a partir da letra",
+    "voice": "Voz de canto de destino",
+    "reference": "Ou enviar uma voz real de referência",
+    "lyrics": "Letra",
+    "style": "Estilo e instrumentos",
+    "duration": "Duração (segundos)",
+    "source": "Canção ou voz de origem",
+    "youtube": "Ou link do YouTube",
+    "vocalOnly": "A origem é uma voz isolada",
+    "instrumental": "Instrumental no mesmo tom (opcional)",
+    "steps": "Etapas de conversão",
+    "vocalGain": "Volume vocal",
+    "instrumentalGain": "Volume instrumental",
+    "run": "Criar gravação cantada",
+    "history": "Gravações cantadas recentes",
+    "stages": {
+      "queued": "Na fila",
+      "prepare": "Preparando áudio",
+      "download": "Baixando",
+      "compose": "Compondo",
+      "separate": "Separando faixas",
+      "convert": "Convertendo voz",
+      "mix": "Mixando e exportando",
+      "done": "Concluído",
+      "failed": "Falhou",
+      "cancelled": "Cancelado"
+    }
   }
 }

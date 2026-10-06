@@ -3438,5 +3438,39 @@
     "error": "언어를 확인할 수 없습니다",
     "modelLanguages": "이 모델의 언어",
     "changeModel": "모델 변경"
+  },
+  "singing": {
+    "title": "노래 스튜디오",
+    "description": "원본 멜로디를 유지하며 음색을 바꾸거나 베트남어 가사로 작곡합니다.",
+    "notInstalled": "Seed-VC가 설치되지 않았습니다. 노래 엔진을 먼저 설치하세요.",
+    "firstDownload": "첫 작업에서 모델을 다운로드합니다. 엔진 로그에서 진행 상황을 확인하세요.",
+    "cover": "노래 음색 변환",
+    "compose": "가사로 작곡",
+    "voice": "목표 노래 음성",
+    "reference": "또는 실제 참조 음성 업로드",
+    "lyrics": "가사",
+    "style": "스타일과 악기",
+    "duration": "길이 (초)",
+    "source": "노래 또는 원본 보컬",
+    "youtube": "또는 YouTube 링크",
+    "vocalOnly": "입력은 분리된 보컬",
+    "instrumental": "같은 조의 반주 (선택)",
+    "steps": "변환 단계",
+    "vocalGain": "보컬 음량",
+    "instrumentalGain": "반주 음량",
+    "run": "노래 녹음 생성",
+    "history": "최근 노래 녹음",
+    "stages": {
+      "queued": "대기 중",
+      "prepare": "오디오 준비",
+      "download": "다운로드",
+      "compose": "작곡",
+      "separate": "트랙 분리",
+      "convert": "노래 음성 변환",
+      "mix": "믹싱 및 내보내기",
+      "done": "완료",
+      "failed": "실패",
+      "cancelled": "취소됨"
+    }
   }
 }

@@ -3438,5 +3438,39 @@
     "error": "Could not check languages",
     "modelLanguages": "Languages for this model",
     "changeModel": "Change model"
+  },
+  "singing": {
+    "title": "Singing studio",
+    "description": "Keep the source melody, convert its voice or compose a new song from Vietnamese lyrics.",
+    "notInstalled": "Seed-VC is not installed. Run the singing engine installer first.",
+    "firstDownload": "The first job downloads singing models. See the engine log for download progress.",
+    "cover": "Convert a song",
+    "compose": "Compose from lyrics",
+    "voice": "Target singing voice",
+    "reference": "Or upload a real voice reference",
+    "lyrics": "Lyrics",
+    "style": "Style and instruments",
+    "duration": "Duration (seconds)",
+    "source": "Song or source vocal",
+    "youtube": "Or a YouTube link",
+    "vocalOnly": "Source is a clean vocal",
+    "instrumental": "Instrumental in the same key (optional)",
+    "steps": "Conversion steps",
+    "vocalGain": "Vocal volume",
+    "instrumentalGain": "Instrumental volume",
+    "run": "Create singing take",
+    "history": "Recent singing takes",
+    "stages": {
+      "queued": "Queued",
+      "prepare": "Preparing audio",
+      "download": "Downloading source",
+      "compose": "Composing",
+      "separate": "Separating stems",
+      "convert": "Converting singing voice",
+      "mix": "Mixing and exporting",
+      "done": "Complete",
+      "failed": "Failed",
+      "cancelled": "Cancelled"
+    }
   }
 }

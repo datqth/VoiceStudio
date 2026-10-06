@@ -732,13 +732,14 @@ def _phase_a_build_inner() -> None:
         media_tools as media_tools_router,  # Audio tools: ffmpeg/ffprobe/yt-dlp
         auth as auth_router,
         voice_convert,  # Studio Convert: speech-to-speech via ASR → TTS
+        singing,
     )
     from api.routers import mcp_bindings as _mcp_bindings_router  # noqa: E402
     from api.routers import workers as workers_router  # noqa: E402
     from api.routers import telephony_twilio as _telephony_twilio_router  # noqa: E402
     from api.routers import calls as _calls_router  # noqa: E402
     _router_modules.extend([
-        system, profiles, profile_images, exports, generation, voice_convert, dub_core, dub_generate,
+        system, profiles, profile_images, exports, generation, voice_convert, singing, dub_core, dub_generate,
         dub_export, dub_translate, projects, glossary, engines, tools,
         stories, setup, gallery, archetypes, describe_voice, community,
         batch, watermark, events, capture, capture_ws, speech_platform, dictation,
@@ -1235,6 +1236,8 @@ async def lifespan(app: FastAPI):
     except Exception:
         logger.exception("Telephony gateway shutdown failed")
     logger.info("Shutdown: cleaning up…")
+    from services.singing import cancel_all as cancel_singing_jobs
+    cancel_singing_jobs()
     # Flip model_manager into shutdown mode, so a model load in flight (or
     # still queued) on a GPU-pool thread classifies executor rejections as a
     # benign cancelled-load instead of a crash-shaped failure (#1174). None

@@ -3438,5 +3438,39 @@
     "error": "Talen konden niet worden gecontroleerd",
     "modelLanguages": "Talen voor dit model",
     "changeModel": "Model wijzigen"
+  },
+  "singing": {
+    "title": "Zangstudio",
+    "description": "Behoud de melodie, verander de stem of componeer met Vietnamese tekst.",
+    "notInstalled": "Seed-VC ontbreekt. Installeer eerst de zangengines.",
+    "firstDownload": "De eerste taak downloadt modellen. Bekijk het enginelogboek.",
+    "cover": "Lied omzetten",
+    "compose": "Componeren met tekst",
+    "voice": "Doelzangstem",
+    "reference": "Of echte stemreferentie uploaden",
+    "lyrics": "Songtekst",
+    "style": "Stijl en instrumenten",
+    "duration": "Duur (seconden)",
+    "source": "Lied of bronzang",
+    "youtube": "Of YouTube-link",
+    "vocalOnly": "Bron is geïsoleerde zang",
+    "instrumental": "Instrumentaal in dezelfde toonsoort (optioneel)",
+    "steps": "Omzettingsstappen",
+    "vocalGain": "Zangvolume",
+    "instrumentalGain": "Instrumentaal volume",
+    "run": "Zangopname maken",
+    "history": "Recente zangopnamen",
+    "stages": {
+      "queued": "In wachtrij",
+      "prepare": "Audio voorbereiden",
+      "download": "Downloaden",
+      "compose": "Componeren",
+      "separate": "Sporen scheiden",
+      "convert": "Zang omzetten",
+      "mix": "Mixen en exporteren",
+      "done": "Voltooid",
+      "failed": "Mislukt",
+      "cancelled": "Geannuleerd"
+    }
   }
 }

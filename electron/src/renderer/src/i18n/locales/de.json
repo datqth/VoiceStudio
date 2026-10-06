@@ -3438,5 +3438,39 @@
     "error": "Sprachen konnten nicht geprüft werden",
     "modelLanguages": "Sprachen dieses Modells",
     "changeModel": "Modell wechseln"
+  },
+  "singing": {
+    "title": "Gesangsstudio",
+    "description": "Quellmelodie behalten, Stimme ändern oder ein Lied aus vietnamesischem Text erstellen.",
+    "notInstalled": "Seed-VC fehlt. Zuerst die Gesangs-Engines installieren.",
+    "firstDownload": "Beim ersten Auftrag werden Modelle heruntergeladen. Fortschritt im Engine-Protokoll.",
+    "cover": "Liedstimme ändern",
+    "compose": "Aus Liedtext komponieren",
+    "voice": "Zielstimme",
+    "reference": "Oder echte Stimmreferenz hochladen",
+    "lyrics": "Liedtext",
+    "style": "Stil und Instrumente",
+    "duration": "Dauer (Sekunden)",
+    "source": "Lied oder Gesangsspur",
+    "youtube": "Oder YouTube-Link",
+    "vocalOnly": "Quelle ist eine reine Gesangsspur",
+    "instrumental": "Instrumental in gleicher Tonart (optional)",
+    "steps": "Umwandlungsschritte",
+    "vocalGain": "Gesangslautstärke",
+    "instrumentalGain": "Instrumentallautstärke",
+    "run": "Gesangsaufnahme erstellen",
+    "history": "Letzte Gesangsaufnahmen",
+    "stages": {
+      "queued": "Warteschlange",
+      "prepare": "Audio vorbereiten",
+      "download": "Quelle herunterladen",
+      "compose": "Komponieren",
+      "separate": "Spuren trennen",
+      "convert": "Gesang umwandeln",
+      "mix": "Mischen und exportieren",
+      "done": "Fertig",
+      "failed": "Fehlgeschlagen",
+      "cancelled": "Abgebrochen"
+    }
   }
 }

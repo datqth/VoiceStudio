@@ -3438,5 +3438,39 @@
     "error": "言語を確認できませんでした",
     "modelLanguages": "このモデルの言語",
     "changeModel": "モデルを変更"
+  },
+  "singing": {
+    "title": "歌声スタジオ",
+    "description": "元のメロディーを保ち、声を変換するかベトナム語の歌詞から作曲します。",
+    "notInstalled": "Seed-VCが未インストールです。歌声エンジンをインストールしてください。",
+    "firstDownload": "初回はモデルをダウンロードします。エンジンログで進捗を確認できます。",
+    "cover": "曲の声を変換",
+    "compose": "歌詞から作曲",
+    "voice": "変換先の歌声",
+    "reference": "または実際の声の参照音声をアップロード",
+    "lyrics": "歌詞",
+    "style": "スタイルと楽器",
+    "duration": "長さ（秒）",
+    "source": "曲または元のボーカル",
+    "youtube": "またはYouTubeリンク",
+    "vocalOnly": "入力は分離済みボーカル",
+    "instrumental": "同じキーの伴奏（任意）",
+    "steps": "変換ステップ数",
+    "vocalGain": "ボーカル音量",
+    "instrumentalGain": "伴奏音量",
+    "run": "歌声を作成",
+    "history": "最近の歌声",
+    "stages": {
+      "queued": "待機中",
+      "prepare": "音声準備",
+      "download": "ダウンロード",
+      "compose": "作曲",
+      "separate": "トラック分離",
+      "convert": "歌声変換",
+      "mix": "ミックスと書き出し",
+      "done": "完了",
+      "failed": "失敗",
+      "cancelled": "キャンセル済み"
+    }
   }
 }

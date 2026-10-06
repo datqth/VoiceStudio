@@ -3438,5 +3438,39 @@
     "error": "Diller kontrol edilemedi",
     "modelLanguages": "Bu modelin dilleri",
     "changeModel": "Modeli değiştir"
+  },
+  "singing": {
+    "title": "Şarkı stüdyosu",
+    "description": "Melodiyi koruyun, sesi değiştirin veya Vietnamca sözlerden şarkı oluşturun.",
+    "notInstalled": "Seed-VC kurulu değil. Önce şarkı motorlarını kurun.",
+    "firstDownload": "İlk görev modelleri indirir. Motor günlüğüne bakın.",
+    "cover": "Şarkı sesini dönüştür",
+    "compose": "Sözlerden bestele",
+    "voice": "Hedef şarkı sesi",
+    "reference": "Veya gerçek referans ses yükleyin",
+    "lyrics": "Şarkı sözleri",
+    "style": "Tarz ve enstrümanlar",
+    "duration": "Süre (saniye)",
+    "source": "Şarkı veya kaynak vokal",
+    "youtube": "Veya YouTube bağlantısı",
+    "vocalOnly": "Kaynak temiz vokaldir",
+    "instrumental": "Aynı tonda altyapı (isteğe bağlı)",
+    "steps": "Dönüştürme adımları",
+    "vocalGain": "Vokal ses düzeyi",
+    "instrumentalGain": "Altyapı ses düzeyi",
+    "run": "Şarkı kaydı oluştur",
+    "history": "Son şarkı kayıtları",
+    "stages": {
+      "queued": "Sırada",
+      "prepare": "Ses hazırlanıyor",
+      "download": "İndiriliyor",
+      "compose": "Besteleniyor",
+      "separate": "Parçalar ayrılıyor",
+      "convert": "Ses dönüştürülüyor",
+      "mix": "Miks ve dışa aktarma",
+      "done": "Tamamlandı",
+      "failed": "Başarısız",
+      "cancelled": "İptal edildi"
+    }
   }
 }

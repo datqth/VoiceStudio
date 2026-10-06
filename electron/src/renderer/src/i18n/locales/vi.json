@@ -3438,5 +3438,39 @@
     "error": "Không thể kiểm tra ngôn ngữ",
     "modelLanguages": "Ngôn ngữ của mô hình này",
     "changeModel": "Đổi mô hình"
+  },
+  "singing": {
+    "title": "Phòng thu giọng hát",
+    "description": "Giữ giai điệu nguồn, đổi sang giọng đã chọn hoặc tạo bài mới từ lời tiếng Việt.",
+    "notInstalled": "Chưa cài Seed-VC. Chạy trình cài engine hát trước.",
+    "firstDownload": "Lần chạy đầu sẽ tải model giọng hát. Tiến độ chi tiết nằm trong log engine.",
+    "cover": "Đổi giọng bài có sẵn",
+    "compose": "Tạo bài từ lời",
+    "voice": "Giọng hát đích",
+    "reference": "Hoặc nạp giọng thật tham chiếu",
+    "lyrics": "Lời bài hát",
+    "style": "Phong cách và nhạc cụ",
+    "duration": "Thời lượng (giây)",
+    "source": "Bài hát hoặc vocal nguồn",
+    "youtube": "Hoặc liên kết YouTube",
+    "vocalOnly": "File nguồn là vocal sạch",
+    "instrumental": "Nhạc nền cùng tông (tùy chọn)",
+    "steps": "Số bước đổi giọng",
+    "vocalGain": "Âm lượng vocal",
+    "instrumentalGain": "Âm lượng nhạc nền",
+    "run": "Tạo bản hát",
+    "history": "Các bản hát gần đây",
+    "stages": {
+      "queued": "Đang chờ",
+      "prepare": "Chuẩn bị audio",
+      "download": "Tải bài nguồn",
+      "compose": "Tạo bài mới",
+      "separate": "Tách vocal và nhạc nền",
+      "convert": "Đổi giọng hát",
+      "mix": "Trộn và xuất audio",
+      "done": "Hoàn tất",
+      "failed": "Thất bại",
+      "cancelled": "Đã hủy"
+    }
   }
 }

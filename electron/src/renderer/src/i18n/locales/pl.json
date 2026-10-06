@@ -3442,5 +3442,39 @@
     "error": "Nie udało się sprawdzić języków",
     "modelLanguages": "Języki tego modelu",
     "changeModel": "Zmień model"
+  },
+  "singing": {
+    "title": "Studio śpiewu",
+    "description": "Zachowaj melodię, zmień głos lub skomponuj utwór z wietnamskim tekstem.",
+    "notInstalled": "Brak Seed-VC. Najpierw zainstaluj silniki śpiewu.",
+    "firstDownload": "Pierwsze zadanie pobiera modele. Sprawdź dziennik silnika.",
+    "cover": "Konwertuj piosenkę",
+    "compose": "Komponuj z tekstu",
+    "voice": "Docelowy głos śpiewu",
+    "reference": "Lub prześlij prawdziwy głos referencyjny",
+    "lyrics": "Tekst piosenki",
+    "style": "Styl i instrumenty",
+    "duration": "Czas (sekundy)",
+    "source": "Piosenka lub wokal źródłowy",
+    "youtube": "Lub link YouTube",
+    "vocalOnly": "Źródło to czysty wokal",
+    "instrumental": "Podkład w tej samej tonacji (opcjonalnie)",
+    "steps": "Kroki konwersji",
+    "vocalGain": "Głośność wokalu",
+    "instrumentalGain": "Głośność podkładu",
+    "run": "Utwórz nagranie śpiewu",
+    "history": "Ostatnie nagrania śpiewu",
+    "stages": {
+      "queued": "W kolejce",
+      "prepare": "Przygotowanie audio",
+      "download": "Pobieranie",
+      "compose": "Komponowanie",
+      "separate": "Rozdzielanie ścieżek",
+      "convert": "Konwersja wokalu",
+      "mix": "Miksowanie i eksport",
+      "done": "Ukończono",
+      "failed": "Błąd",
+      "cancelled": "Anulowano"
+    }
   }
 }

@@ -3438,5 +3438,39 @@
     "error": "无法检查语言",
     "modelLanguages": "此模型的语言",
     "changeModel": "更换模型"
+  },
+  "singing": {
+    "title": "歌声工作室",
+    "description": "保留原曲旋律，转换音色或用越南语歌词创作新歌。",
+    "notInstalled": "尚未安装Seed-VC，请先安装歌声引擎。",
+    "firstDownload": "首次运行会下载模型，进度见引擎日志。",
+    "cover": "转换歌曲音色",
+    "compose": "从歌词创作",
+    "voice": "目标歌声",
+    "reference": "或上传真实声音参考",
+    "lyrics": "歌词",
+    "style": "风格与乐器",
+    "duration": "时长（秒）",
+    "source": "歌曲或原始人声",
+    "youtube": "或YouTube链接",
+    "vocalOnly": "源文件为纯人声",
+    "instrumental": "同调伴奏（可选）",
+    "steps": "转换步数",
+    "vocalGain": "人声音量",
+    "instrumentalGain": "伴奏音量",
+    "run": "生成歌声",
+    "history": "最近的歌声",
+    "stages": {
+      "queued": "排队中",
+      "prepare": "准备音频",
+      "download": "下载源曲",
+      "compose": "创作歌曲",
+      "separate": "分离音轨",
+      "convert": "转换歌声",
+      "mix": "混音与导出",
+      "done": "完成",
+      "failed": "失败",
+      "cancelled": "已取消"
+    }
   }
 }

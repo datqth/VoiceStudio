@@ -3438,5 +3438,39 @@
     "error": "Kunde inte kontrollera språk",
     "modelLanguages": "Språk för den här modellen",
     "changeModel": "Byt modell"
+  },
+  "singing": {
+    "title": "Sångstudio",
+    "description": "Behåll melodin, byt röst eller komponera med vietnamesisk text.",
+    "notInstalled": "Seed-VC saknas. Installera sångmotorerna först.",
+    "firstDownload": "Första jobbet hämtar modeller. Se motorns logg.",
+    "cover": "Konvertera låt",
+    "compose": "Komponera från text",
+    "voice": "Målsångröst",
+    "reference": "Eller ladda upp en verklig röstreferens",
+    "lyrics": "Låttext",
+    "style": "Stil och instrument",
+    "duration": "Längd (sekunder)",
+    "source": "Låt eller källsång",
+    "youtube": "Eller YouTube-länk",
+    "vocalOnly": "Källan är isolerad sång",
+    "instrumental": "Instrumental i samma tonart (valfritt)",
+    "steps": "Konverteringssteg",
+    "vocalGain": "Sångvolym",
+    "instrumentalGain": "Instrumentalvolym",
+    "run": "Skapa sångtagning",
+    "history": "Senaste sångtagningar",
+    "stages": {
+      "queued": "I kö",
+      "prepare": "Förbereder ljud",
+      "download": "Hämtar",
+      "compose": "Komponerar",
+      "separate": "Separerar spår",
+      "convert": "Konverterar sång",
+      "mix": "Mixar och exporterar",
+      "done": "Klart",
+      "failed": "Misslyckat",
+      "cancelled": "Avbrutet"
+    }
   }
 }

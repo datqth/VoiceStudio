@@ -3438,5 +3438,39 @@
     "error": "Tidak dapat memeriksa bahasa",
     "modelLanguages": "Bahasa untuk model ini",
     "changeModel": "Ganti model"
+  },
+  "singing": {
+    "title": "Studio bernyanyi",
+    "description": "Pertahankan melodi, ubah suara atau buat lagu dengan lirik Vietnam.",
+    "notInstalled": "Seed-VC belum terpasang. Pasang mesin bernyanyi dahulu.",
+    "firstDownload": "Tugas pertama mengunduh model. Lihat log mesin.",
+    "cover": "Ubah suara lagu",
+    "compose": "Ciptakan dari lirik",
+    "voice": "Suara nyanyi tujuan",
+    "reference": "Atau unggah referensi suara asli",
+    "lyrics": "Lirik",
+    "style": "Gaya dan instrumen",
+    "duration": "Durasi (detik)",
+    "source": "Lagu atau vokal sumber",
+    "youtube": "Atau tautan YouTube",
+    "vocalOnly": "Sumber adalah vokal bersih",
+    "instrumental": "Instrumental dengan nada yang sama (opsional)",
+    "steps": "Langkah konversi",
+    "vocalGain": "Volume vokal",
+    "instrumentalGain": "Volume instrumental",
+    "run": "Buat rekaman nyanyi",
+    "history": "Rekaman nyanyi terbaru",
+    "stages": {
+      "queued": "Antrean",
+      "prepare": "Menyiapkan audio",
+      "download": "Mengunduh",
+      "compose": "Menggubah",
+      "separate": "Memisahkan trek",
+      "convert": "Mengubah suara",
+      "mix": "Mencampur dan mengekspor",
+      "done": "Selesai",
+      "failed": "Gagal",
+      "cancelled": "Dibatalkan"
+    }
   }
 }

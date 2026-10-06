@@ -3440,5 +3440,39 @@
     "error": "Impossible de vérifier les langues",
     "modelLanguages": "Langues de ce modèle",
     "changeModel": "Changer de modèle"
+  },
+  "singing": {
+    "title": "Studio de chant",
+    "description": "Conservez la mélodie, changez la voix ou composez avec des paroles vietnamiennes.",
+    "notInstalled": "Seed-VC absent. Installez les moteurs de chant.",
+    "firstDownload": "Le premier travail télécharge les modèles. Consultez le journal du moteur.",
+    "cover": "Convertir une chanson",
+    "compose": "Composer avec des paroles",
+    "voice": "Voix de chant cible",
+    "reference": "Ou importer une vraie voix de référence",
+    "lyrics": "Paroles",
+    "style": "Style et instruments",
+    "duration": "Durée (secondes)",
+    "source": "Chanson ou piste vocale",
+    "youtube": "Ou un lien YouTube",
+    "vocalOnly": "La source est une voix isolée",
+    "instrumental": "Instrumental dans la même tonalité (facultatif)",
+    "steps": "Étapes de conversion",
+    "vocalGain": "Volume vocal",
+    "instrumentalGain": "Volume instrumental",
+    "run": "Créer une prise chantée",
+    "history": "Prises chantées récentes",
+    "stages": {
+      "queued": "En attente",
+      "prepare": "Préparation audio",
+      "download": "Téléchargement",
+      "compose": "Composition",
+      "separate": "Séparation des pistes",
+      "convert": "Conversion vocale",
+      "mix": "Mixage et export",
+      "done": "Terminé",
+      "failed": "Échec",
+      "cancelled": "Annulé"
+    }
   }
 }
